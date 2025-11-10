@@ -1,42 +1,69 @@
-# House Price Prediction: Comparing Linear Regression and k-Nearest Neighbors (kNN)
+# House Price Prediction: Comparative Analysis of Linear Regression and k-Nearest Neighbors (kNN)
 
-## Overview
+## 🏠 Project Overview
 
-This project focuses on predicting house prices using two different machine learning models: Linear Regression and k-Nearest Neighbors (kNN) Regression. The goal is to evaluate the performance of both models in terms of their prediction accuracy, comparing them on metrics such as Root Mean Squared Error (RMSE) and R-squared (R²) score.
+This project aims to predict residential **house prices** using a dataset from the Kaggle House Prices - Advanced Regression Techniques competition. We compare the performance of two fundamental machine learning algorithms, **Linear Regression** and **k-Nearest Neighbors (kNN) Regression**, to determine the superior model for this specific prediction task.
 
-The dataset used for this project comes from Kaggle's House Prices - Advanced Regression Techniques competition. This dataset includes various features such as the size of the house, number of bedrooms, year built, and more, which we will use to predict the final sale price.
+The analysis focuses on standard regression evaluation metrics: **Root Mean Squared Error (RMSE)** and the **R-squared ($R^2$) score**, to provide a quantitative comparison of prediction accuracy and model fit.
 
-## Project Workflow
-1. Data Preprocessing
-Load the dataset from Kaggle.
-Handle missing values using simple imputation.
-Normalize the numerical features using StandardScaler.
-Encode categorical variables using OneHotEncoder.
-Engineer new features, such as calculating the age of the house.
-2. Model Training
-Linear Regression: A basic regression algorithm that assumes a linear relationship between the independent variables and the dependent variable.
-k-Nearest Neighbors (kNN) Regression: A non-parametric algorithm that makes predictions based on the average of the 'k' nearest data points in the feature space.
-3. Model Evaluation
-We use RMSE and R² score as evaluation metrics to measure model performance on the test set. The results from both models are compared to determine which algorithm performs better in predicting house prices.
+---
 
-## Results
-k-Nearest Neighbors (kNN)
-RMSE: 35,308.64
-R² Score: 0.82134
-Knn Regression provided a relatively good fit for the data, with a lower RMSE and higher R² score, indicating that it is able to explain a good portion of the variance in the target variable (house prices).
+## 🛠️ Project Workflow and Methodology
 
-Linear Regression
-RMSE: 42,645.12
-R² Score: 0.73938
-Linear Regression performed slightly worse than Knn regression. It had a higher RMSE, meaning its predictions were less accurate, and a lower R² score, meaning it explained less of the variance in the data.
+The project followed a standard machine learning pipeline:
 
-Best Parameters for kNN:
-n_neighbors: 9
-weights: 'distance'
-A grid search was performed to optimize the hyperparameters for the kNN model. The best results were obtained using 9 neighbors and the 'distance' weighting scheme.
+### 1. Data Preprocessing and Feature Engineering
+* **Loading and Imputation:** The raw dataset was loaded, and missing values were handled using simple imputation techniques.
+* **Normalization:** Numerical features were scaled using `StandardScaler` to prevent features with larger magnitudes from dominating the model.
+* **Encoding:** Categorical variables were converted into a numerical format using `OneHotEncoder`.
+* **Feature Engineering:** New, informative features were created, such as calculating the **age of the house** from the `YearBuilt` feature.
 
-## Conclusion
-Based on the results, kNN Regression outperforms Linear Regression in this scenario, providing more accurate predictions with a lower RMSE and a higher R² score. This indicates that the Knn model is better suited for this particular dataset.
+### 2. Model Training and Hyperparameter Tuning
+Two models were trained on the preprocessed data:
 
-### Dataset
-The dataset used in this project is available from Kaggle: House Prices - Advanced Regression Techniques.
+* **Linear Regression:** A parametric model chosen as a baseline, assuming a **linear relationship** between features and the target variable (SalePrice).
+* **k-Nearest Neighbors (kNN) Regression:** A non-parametric model chosen to explore the benefit of a **local, distance-based** approach to prediction. Hyperparameters were optimized using **Grid Search**.
+
+### 3. Model Evaluation
+The models were evaluated on an unseen test set using the following metrics:
+
+* **Root Mean Squared Error (RMSE):** Measures the average magnitude of the errors, representing the **square root of the average squared difference** between the predicted and actual values. Lower RMSE indicates better performance.
+* **R-squared ($R^2$) Score:** Represents the **proportion of the variance** in the dependent variable that is predictable from the independent variables. A score closer to 1 indicates a better fit.
+
+---
+
+## 📊 Results and Performance Comparison
+
+The following table summarizes the performance of both models on the test dataset:
+
+| Model | RMSE | $R^2$ Score |
+| :--- | :--- | :--- |
+| **k-Nearest Neighbors (kNN)** | **35,308.64** | **0.82134** |
+| Linear Regression | 42,645.12 | 0.73938 |
+
+### Key Findings:
+
+* **kNN Regression** demonstrated significantly **better performance**, achieving a **lower RMSE** (meaning more accurate predictions) and a **higher $R^2$ score** (meaning it explains a greater portion of the variance in house prices).
+* The $R^2$ score of **0.82134** for kNN suggests the model explains over **82%** of the variability in the house prices.
+* Linear Regression serves as a weak baseline, indicating that the relationship between the features and house price is likely **non-linear** or benefits from a localized, non-parametric approach.
+
+### Optimized kNN Parameters:
+
+The optimal configuration found via Grid Search for the kNN model was:
+* **`n_neighbors`**: 9
+* **`weights`**: 'distance' (neighbor points are weighted by the inverse of their distance)
+
+---
+
+## 💡 Conclusion
+
+**kNN Regression outperforms Linear Regression** in this house price prediction task. The superior performance, evidenced by a **$17\%$ lower RMSE** and a **$11\%$ higher $R^2$ score** compared to the baseline, suggests that the underlying structure of the House Prices dataset is better captured by a non-linear, local-based algorithm. The kNN model is therefore better suited for providing accurate house price predictions using these features.
+
+---
+
+## 📚 Dataset Reference
+
+The data used for this analysis is publicly available on Kaggle:
+
+* **Dataset:** House Prices - Advanced Regression Techniques
+* **Source:** [https://www.kaggle.com/c/house-prices-advanced-regression-techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
