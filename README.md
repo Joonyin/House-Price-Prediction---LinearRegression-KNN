@@ -1,6 +1,6 @@
 # House Price Prediction: Comparative Analysis of Linear Regression and k-Nearest Neighbors (kNN)
 
-## 🏠 Project Overview
+## Project Overview
 
 This project aims to predict residential **house prices** using a dataset from the Kaggle House Prices - Advanced Regression Techniques competition. We compare the performance of two fundamental machine learning algorithms, **Linear Regression** and **k-Nearest Neighbors (kNN) Regression**, to determine the superior model for this specific prediction task.
 
@@ -32,7 +32,7 @@ The models were evaluated on an unseen test set using the following metrics:
 
 ---
 
-## 📊 Results and Performance Comparison
+## Results and Performance Comparison
 
 The following table summarizes the performance of both models on the test dataset:
 
@@ -55,13 +55,13 @@ The optimal configuration found via Grid Search for the kNN model was:
 
 ---
 
-## 💡 Conclusion
+## Conclusion
 
 **kNN Regression outperforms Linear Regression** in this house price prediction task. The superior performance, evidenced by a **$17\%$ lower RMSE** and a **$11\%$ higher $R^2$ score** compared to the baseline, suggests that the underlying structure of the House Prices dataset is better captured by a non-linear, local-based algorithm. The kNN model is therefore better suited for providing accurate house price predictions using these features.
 
 ---
 
-## 📚 Dataset Reference
+## Dataset Reference
 
 The data used for this analysis is publicly available on Kaggle:
 
