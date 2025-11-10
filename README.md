@@ -8,7 +8,7 @@ The analysis focuses on standard regression evaluation metrics: **Root Mean Squa
 
 ---
 
-## 🛠️ Project Workflow and Methodology
+## Project Workflow and Methodology
 
 The project followed a standard machine learning pipeline:
 
